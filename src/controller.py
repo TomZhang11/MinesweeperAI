@@ -77,6 +77,3 @@ class MinesweeperAI(Settings):
             return
         elif response == 'q':
             exit(0)
-
-# resume
-# demonstrate more on website
