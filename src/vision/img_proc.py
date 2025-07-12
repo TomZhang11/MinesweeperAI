@@ -122,7 +122,7 @@ class ImageProcessor(Logger, Settings):
                 cell.num = R_MAP.get(r, -1)
                 if cell.num == -1:
                     # unrecognized color
-                    cell.state = State.UNOPENED
+                    cell.state = State.UNRECOGNIZED
                     b = self.img[cell.cent_y, cell.cent_x, 0]
                     self.log(f"{cell} has unrecognized bgr({b}, {g}, {r})", Type.ABNORMAL)
                     unrecognized_color_count += 1

@@ -6,6 +6,7 @@ class State(Enum):
     UNOPENED = 0
     OPENED = 1
     FLAGGED = 2
+    UNRECOGNIZED = 3
 
 class Cell(ScreenObject, Logger):
     def __init__(self, board_x, board_y, row, col, dim):

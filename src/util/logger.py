@@ -6,8 +6,9 @@ class Type(IntEnum):
     FLAG = 0
     ITERATION = 4
     PLAIN = 5
-    TIME_ANALYSIS = 6
-    SOLVE_COUNT = 7
+    SOLVE = 6
+    TIME_ANALYSIS = 7
+    SOLVE_COUNT = 8
 
 def print_abnormal(msg: str) -> None:
     print(msg)
@@ -28,11 +29,15 @@ def print_iteration(iterations: int) -> None:
 def print_plain(msg: str) -> None:
     print(msg)
 
+def print_solve(msg: str) -> None:
+    print(msg)
+
 def print_timing(process_time: dict[str, float]) -> None:
     print()
     print("timing analysis:")
     for process in process_time:
         print(f"{process}: {process_time[process]:.3f}s")
+    print()
 
 def print_solve_count(solve_count: dict[str, dict[str, int]]) -> None:
     print()
@@ -56,6 +61,8 @@ class Logger:
                 print_iteration(obj)
             case Type.PLAIN:
                 print_plain(obj)
+            case Type.SOLVE:
+                print_solve(obj)
             case Type.TIME_ANALYSIS:
                 print_timing(obj)
             case Type.SOLVE_COUNT:

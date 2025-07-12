@@ -77,7 +77,6 @@ class MinesweeperAI(Settings):
         elif response == 'q':
             exit(0)
 
-# end game
 # documentation (readme)
 # upload to github
 

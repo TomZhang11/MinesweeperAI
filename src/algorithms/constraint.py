@@ -1,6 +1,6 @@
 from src.core.cell import Cell, State
 from src.util.time import Process
-from src.util.logger import Logger
+from src.util.logger import Logger, Type
 
 # iterate through all possible arragements of the game board
 # if a cell is a mine in all arragements, then it is 100% a mine
@@ -26,9 +26,9 @@ class ConstraintSolver(Logger):
 
     def constraint_search(self, paths: list[list[Cell]]):
         for path in paths: # for each path
-            self.log(f"length of constraint search: {len(path)}")
+            self.log(f"length of constraint search: {len(path)}", Type.SOLVE)
             arrangements_count = {cell: 0 for cell in path} # stores how many times a cell appears as a mine
-            total_arrangements = ConstraintSolver.iterate(path, set(), arrangements_count) # use constraint search to iterate through the path, updating arrangements_count when a possible arrangement is found
+            total_arrangements = ConstraintSolver.iterate(path, set(), arrangements_count, self.board.mines_remaining) # use constraint search to iterate through the path, updating arrangements_count when a possible arrangement is found
 
             # react upon results
             for cell in arrangements_count:
@@ -41,14 +41,16 @@ class ConstraintSolver(Logger):
 
     def end_game(self):
         unopened = self.find_unopened()
+        if len(unopened) > 20: # don't want to iterate more than 2^20 times
+            return
         self.constraint_search([unopened])
 
     # O(2^n)
     @staticmethod
-    def iterate(path: list[Cell], virtual_flags: set[Cell], arrangements_count: dict[Cell, int]) -> int:
+    def iterate(path: list[Cell], virtual_flags: set[Cell], arrangements_count: dict[Cell, int], mines_remaining: int) -> int:
         # virtual_flags contains the set of cells that have been pretended to be a mine in the past
         # think of path as the future, virtual_flags as the past
-
+        if mines_remaining < 0: return 0
         if not path: # base case: path empty
             for cell in virtual_flags: # add 1 for each cell that ended up as a mine
                 arrangements_count[cell] += 1
@@ -60,10 +62,10 @@ class ConstraintSolver(Logger):
         # only move forward if it will result in a possible world
         if possibly_mine(cell, virtual_flags): # if it is possible for this cell to be a mine
             virtual_flags.add(cell)
-            total_arrangements += ConstraintSolver.iterate(path, virtual_flags, arrangements_count) # move forward pretending this cell 
+            total_arrangements += ConstraintSolver.iterate(path, virtual_flags, arrangements_count, mines_remaining - 1) # move forward pretending this cell 
             virtual_flags.remove(cell)
         if possibly_safe(cell, set(path), virtual_flags): # if it is possible for this cell to be safe
-            total_arrangements += ConstraintSolver.iterate(path, virtual_flags, arrangements_count) # move forward pretending this cell is safe
+            total_arrangements += ConstraintSolver.iterate(path, virtual_flags, arrangements_count, mines_remaining) # move forward pretending this cell is safe
         path.append(cell)
         return total_arrangements
 
