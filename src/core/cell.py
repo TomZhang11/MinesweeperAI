@@ -1,7 +1,6 @@
 from src.core.screen_object import ScreenObject
 from enum import Enum
 from src.util.logger import Logger, Type
-from src.util.settings import Settings
 
 class State(Enum):
     UNOPENED = 0
@@ -37,8 +36,7 @@ class Cell(ScreenObject, Logger):
     def flag(self):
         # if self.state != State.UNOPENED:
         #     return
-        if Settings.FLAG:
-            self.right_click()
+        self.right_click()
         self.log(self, Type.FLAG)
         self.state = State.FLAGGED
         # notify neighbors

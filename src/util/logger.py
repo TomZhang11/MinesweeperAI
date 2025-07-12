@@ -29,11 +29,13 @@ def print_plain(msg: str) -> None:
     print(msg)
 
 def print_timing(process_time: dict[str, float]) -> None:
+    print()
     print("timing analysis:")
     for process in process_time:
-        print(f"{process}: {process_time[process]}s")
+        print(f"{process}: {process_time[process]:.3f}s")
 
 def print_solve_count(solve_count: dict[str, dict[str, int]]) -> None:
+    print()
     print("solve count:")
     for algorithm in solve_count:
         print(f"{algorithm}: {solve_count[algorithm]}")

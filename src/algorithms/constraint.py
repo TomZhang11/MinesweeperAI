@@ -84,7 +84,7 @@ class ConstraintSolver(Logger):
 
     def find_unopened(self):
         unopened = []
-        for row in self.board:
+        for row in self.board.cells:
             for cell in row:
                 if cell.state == State.UNOPENED:
                     unopened.append(cell)

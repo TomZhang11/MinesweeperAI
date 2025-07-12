@@ -50,10 +50,10 @@ class Solver(Logger):
         # constraint seach
         self.constraint_solver.run()
 
-        total_opened, total_flagged = self.tally()
-        if self.unopened_count == total_opened: # win logic
+        total = self.tally()
+        if self.unopened_count == total: # win logic
             raise Win
-        if not total_opened + total_flagged: # neither solver could solve
+        if not total: # neither solver could solve
             # end game situation
             self.constraint_solver.end_game()
 
@@ -65,11 +65,18 @@ class Solver(Logger):
 
     def tally(self):
         # fetch
-        total_opened = self.basic_solver.solve_count["open"] + self.set_elim_solver.solve_count["open"] + self.constraint_solver.solve_count["open"]
-        total_flagged = self.basic_solver.solve_count["flag"] + self.set_elim_solver.solve_count["flag"] + self.constraint_solver.solve_count["flag"]
+        basic_opened = self.basic_solver.solve_count["open"]
+        basic_flagged = self.basic_solver.solve_count["flag"]
+        set_opened = self.set_elim_solver.solve_count["open"]
+        set_flagged = self.set_elim_solver.solve_count["flag"]
+        constraint_opened = self.constraint_solver.solve_count["open"]
+        constraint_flagged = self.constraint_solver.solve_count["flag"]
+        
+        # calculate totals
+        total_opened = basic_opened + set_opened + constraint_opened
+        total_flagged = basic_flagged + set_flagged + constraint_flagged
 
         # update board
-        self.board.unopened_remaining -= total_opened
         self.board.mines_remaining -= total_flagged
 
         # reset
@@ -78,14 +85,14 @@ class Solver(Logger):
         self.constraint_solver.reset()
 
         # update solve count
-        self.solve_count["basic"]["open"] += total_opened
-        self.solve_count["basic"]["flag"] += total_flagged
-        self.solve_count["set"]["open"] += total_opened
-        self.solve_count["set"]["flag"] += total_flagged
-        self.solve_count["constraint"]["open"] += total_opened
-        self.solve_count["constraint"]["flag"] += total_flagged
+        self.solve_count["basic"]["open"] += basic_opened
+        self.solve_count["basic"]["flag"] += basic_flagged
+        self.solve_count["set"]["open"] += set_opened
+        self.solve_count["set"]["flag"] += set_flagged
+        self.solve_count["constraint"]["open"] += constraint_opened
+        self.solve_count["constraint"]["flag"] += constraint_flagged
 
-        return total_opened, total_flagged
+        return total_opened + total_flagged
 
     def find_boundary_nums(self):
         self.boundary_nums.clear()

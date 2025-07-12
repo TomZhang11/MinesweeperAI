@@ -28,7 +28,6 @@ class Board(ScreenObject):
                         self.cells[i][j].neighbors.append(self.cells[r][c])
 
         self.mines_remaining = Board.ROWS_TO_MINES[self.rows]
-        self.unopened_remaining = self.rows * self.columns - self.mines_remaining
 
     def reset(self):
         super().__init__()

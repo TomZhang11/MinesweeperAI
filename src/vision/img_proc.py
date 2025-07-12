@@ -98,6 +98,7 @@ class ImageProcessor(Logger, Settings):
             238: 5,
             75: 6,
             76: 6,
+            66: 7,
         }
 
         if self.img is None:

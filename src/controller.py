@@ -36,6 +36,7 @@ class MinesweeperAI(Settings):
                 print("PyAutoGUI failsafe triggered (mouse moved to corner)")
                 MinesweeperAI.halt()
             except Win:
+                print()
                 print("congratulations! the board has been solved!")
                 self.solver.log(self.solver.solve_count, Type.SOLVE_COUNT)
                 self.timer.log(self.timer.process_time, Type.TIME_ANALYSIS)
