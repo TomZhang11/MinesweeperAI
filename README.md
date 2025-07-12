@@ -31,10 +31,6 @@ See `src/algorithms/solver.py` to learn more about the algorithms.
 
 ## Design
 
-Includes classes such as error handling classes, a 
-logging class, and a settings class
-Uses the Model-View
-
 This project is designed with object-oriented programming principles
 
 Key components include:
@@ -57,20 +53,12 @@ This structure makes the codebase extensible and easy to understand
 
 ## Thank You
 
-Thank you for viewing my project! I originally built this in grade 11, however, it did not follow good object-oriented design, so I decided to rebuild it. You can find the source code here: [github](https://github.com/TomZhang11/Minesweeper-AI).
+Thank you for viewing my project! I originally built this in grade 11, however, it did not follow good object-oriented design, so I decided to rebuild it. You can find the source code here: [GitHub Repo](https://github.com/TomZhang11/Minesweeper-AI)
 
+Curious to see the AI in action? Check out the YouTube video below where the AI successfully solves Google's Minesweeper 10 times in a row!
 
+Check out my [GitHub profile](https://github.com/TomZhang11) for more projects, or visit my [portfolio](https://tomzhang.netlify.app/).
 
-Curious to see the AI in action? Watch it right here:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hkKDX_FBbR8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Or [view it on YouTube](https://www.youtube.com/watch?v=hkKDX_FBbR8) where the AI successfully solves Google's Minesweeper 10 times in a row!
-
-_Note: If the embedded video does not display (for example, on GitHub), please use the YouTube link above._
-
-[![Watch the AI solve Minesweeper 10 times in a row](https://img.youtube.com/vi/adksfhak/0.jpg)](https://youtube.com/adksfhak)
-
-
+[![AI solves Minesweeper 7 times in a row](https://img.youtube.com/vi/hkKDX_FBbR8/maxresdefault.jpg)](https://www.youtube.com/watch?v=hkKDX_FBbR8)
 
 Your feedback and suggestions are always welcome. Thanks again for your interest!
