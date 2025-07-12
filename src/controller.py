@@ -73,17 +73,10 @@ class MinesweeperAI(Settings):
         while response not in {'r', 'q'}:
             response = input("Program halted. Enter r to resume, q to quit: ").strip().lower()
         if response == 'r':
+            sleep(1)
             return
         elif response == 'q':
             exit(0)
 
-# documentation (readme)
-# upload to github
-
 # resume
-# OOP
-# Display
-# MVC
-# Error handling with Exceptions
-# Logging
 # demonstrate more on website

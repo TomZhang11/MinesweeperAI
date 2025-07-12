@@ -13,4 +13,5 @@ class Display:
             for cell in row:
                 cv2.rectangle(roi, (cell.offset_x, cell.offset_y), (cell.offset_x + cell.w , cell.offset_y + cell.h), (0, 255, 0), 2)
         cv2.imshow("Computer Vision", roi)
+        cv2.resizeWindow("Computer Vision", board.w // 2, board.h // 2)
         cv2.waitKey(1)

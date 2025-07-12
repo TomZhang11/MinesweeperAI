@@ -51,11 +51,11 @@ class Solver(Logger):
         self.constraint_solver.run()
 
         total = self.tally()
-        if self.unopened_count == total: # win logic
-            raise Win
         if not total: # neither solver could solve
             # end game situation
             self.constraint_solver.end_game()
+        if self.unopened_count == total: # win logic
+            raise Win
 
     def reset(self):
         self.iterations = 0
