@@ -18,9 +18,6 @@ def print_open(cell: object) -> None:
 def print_flag(cell: object) -> None:
     print(f"{cell} is flagged")
 
-def print_notify(cell: object) -> None:
-    print(f"{cell} is notified")
-
 def print_iteration(iterations: int) -> None:
     if iterations == 0:
         print("opening center cell")
@@ -53,8 +50,6 @@ class Logger:
                 print_open(obj)
             case Type.FLAG:
                 print_flag(obj)
-            case Type.NOTIFY:
-                print_notify(obj)
             case Type.ITERATION:
                 print_iteration(obj)
             case Type.PLAIN:

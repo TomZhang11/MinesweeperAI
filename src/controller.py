@@ -76,9 +76,7 @@ class MinesweeperAI(Settings):
         elif response == 'q':
             exit(0)
 
-# timing analysis?
-# how many cells are attributed to each algorithm? (straightfwd, setelim, constraintsearch)
-
+# end game
 # documentation (readme)
 # upload to github
 
