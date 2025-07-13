@@ -50,20 +50,19 @@ class Logger:
     def log(obj, type=Type.PLAIN):
         if not type:
             return
-        match type:
-            case Type.ABNORMAL:
-                print_abnormal(obj)
-            case Type.OPEN:
-                print_open(obj)
-            case Type.FLAG:
-                print_flag(obj)
-            case Type.ITERATION:
-                print_iteration(obj)
-            case Type.PLAIN:
-                print_plain(obj)
-            case Type.SOLVE:
-                print_solve(obj)
-            case Type.TIME_ANALYSIS:
-                print_timing(obj)
-            case Type.SOLVE_COUNT:
-                print_solve_count(obj)
+        if type == Type.ABNORMAL:
+            print_abnormal(obj)
+        elif type == Type.OPEN:
+            print_open(obj)
+        elif type == Type.FLAG:
+            print_flag(obj)
+        elif type == Type.ITERATION:
+            print_iteration(obj)
+        elif type == Type.PLAIN:
+            print_plain(obj)
+        elif type == Type.SOLVE:
+            print_solve(obj)
+        elif type == Type.TIME_ANALYSIS:
+            print_timing(obj)
+        elif type == Type.SOLVE_COUNT:
+            print_solve_count(obj)
