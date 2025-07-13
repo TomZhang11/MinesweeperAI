@@ -23,12 +23,13 @@ class MinesweeperAI(Settings):
         self.solver = Solver(self.board, self.timer)
 
     def run(self):
+        sleep(1)
         while (True):
             try:
                 self.step()
             except BoardNotFoundError:
                 print("board not found")
-            except AbnormalBoardError as e:
+            except AbnormalBoardError:
                 print(f"more than {ImageProcessor.UNRECOGNIZE_COUNT} cells have unrecognized colors")
                 self.reset()
                 MinesweeperAI.halt()

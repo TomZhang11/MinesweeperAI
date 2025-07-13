@@ -42,12 +42,12 @@ class ImageProcessor(Logger, Settings):
         contours, _ = cv2.findContours(self.thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         for contour in contours:
             area = cv2.contourArea(contour)
-            if area > 600000 and area < 1200000:
+            if area >= 600000 and area <= 1200000: # 646379 905279 1197799
                 self.board.x, self.board.y, self.board.w, self.board.h = cv2.boundingRect(contour)
                 self.board.cent_x = self.board.x + (self.board.w // 2)
                 self.board.cent_y = self.board.y + (self.board.h // 2)
                 return
-        
+
         # board not found
         raise BoardNotFoundError
 
