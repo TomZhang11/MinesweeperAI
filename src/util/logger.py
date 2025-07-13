@@ -1,5 +1,7 @@
 from enum import IntEnum
 
+# centralized logging
+
 class Type(IntEnum):
     ABNORMAL = 1
     OPEN = 0

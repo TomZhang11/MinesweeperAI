@@ -1,5 +1,7 @@
 import pyautogui
 
+# centralized settings
+
 class Settings:
     SPEED = "medium" # fast medium slow
 

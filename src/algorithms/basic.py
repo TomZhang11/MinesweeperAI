@@ -4,6 +4,7 @@ from src.util.time import Process
 # implements two basic logics by looking at a number's unopened neighbors count and flagged neighbors count
 # 1. if the number on a cell is equal to the number of flagged neighbors, then all other unopened neighbors are safe
 # 2. if the number of a cell is equal to the number of unopened neighbors, then all unopened neighbors are mines
+
 class BasicSolver:
     def __init__(self, board, boundary_nums, timer):
         self.board = board

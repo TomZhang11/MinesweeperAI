@@ -4,6 +4,8 @@ from src.util.logger import Logger, Type
 from src.util.time import Process
 from src.util.settings import Settings
 
+# my approach is to use findContours() to find the board, then read the color of the center pixel on each cell to determine its state and number
+
 class BoardNotFoundError(Exception):
     pass
 

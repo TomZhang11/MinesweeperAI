@@ -2,6 +2,8 @@ from enum import Enum
 from time import time
 from src.util.logger import Logger
 
+# tracking time it takes for difference processes to complete
+
 class Process(Enum):
     IMG_PROC = "image processing"
     SIMPLE = "simple solver"
