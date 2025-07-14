@@ -2,9 +2,13 @@ from src.core.cell import Cell, State
 from src.util.time import Process
 from src.util.logger import Logger, Type
 
-# iterate through all possible arragements of the game board
-# if a cell is a mine in all arragements, then it is 100% a mine
-# if a cell is safe in all arrangements, then it is safe
+# iterate through all possible arrangement of the game board
+# if a cell is a mine every time, then it is 100% a mine
+# if a cell is safe every time, then it is safe
+
+# an arrangement is possible means it satisfies 2 constraints:
+# 1. there will not be a cell where there are more flags than the number on it
+# 2. there will not be a cell where there are less flags than the number on it
 
 class ConstraintSolver(Logger):
     def __init__(self, board, boundary_nums, timer):
