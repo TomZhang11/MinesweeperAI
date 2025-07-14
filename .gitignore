@@ -24,4 +24,4 @@ Thumbs.db
 *.log
 temp/
 tmp/
-# Ignore the settings file in util
+src/util/settings.py
