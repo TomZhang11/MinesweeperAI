@@ -3,7 +3,7 @@ import pyautogui
 # centralized settings
 
 class Settings:
-    SPEED = "fast" # fast medium slow
+    SPEED = "medium" # fast medium slow
 
     # the number of unrecognized cell colors before throwing an exception
     UNRECOGNIZE_COUNT = 70
