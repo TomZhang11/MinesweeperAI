@@ -1,11 +1,11 @@
 # Minesweeper AI
 An AI that solves Google's Minesweeper  
-It takes a screenshot of your screen, processes the image, finds where the mines are, and send click signals to your computer
+It takes a screenshot of your screen, processes the image, finds where the mines are, and sends click signals to your computer
 
 > **Demo:**  
-> See the video below for a demonstration of the AI solving Minesweeper in real time.
+> See the animation below for a demonstration of the AI solving Minesweeper in real time.
 
-<video src="assets/demo.mp4" width="640" controls loop></video>
+![Demo of Minesweeper AI](assets/demo.gif)
 
 ## How to use
 ```
